@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "线上商城",
+  "usingComponents": {
+    "calculate-num": "/components/calculateNum",
+    "cart": "/components/cart",
+    "shop-intro": "/components/shop-intro/index"
+  }
+}

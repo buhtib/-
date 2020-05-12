@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "用户地址",
+  "usingComponents": {
+    "u-section": "/uview-ui/components/u-section/u-section"
+  }
+}

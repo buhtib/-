@@ -1,0 +1,66 @@
+page {
+    --submit-bar-height: 128rpx !important;
+    --submit-bar-button-width:240rpx;
+    /* --tabs-bottom-bar-color:rgb(189, 195, 199, .5); */
+}
+
+.cell {
+    height: var(--cell-height);
+    margin-bottom: var(--cell-m-bottom);
+}
+
+.cell-title {
+    color: var(--color-black);
+    font-size: var(--cell-title) !important;
+}
+
+.sidebar {
+    background-color: red !important;
+}
+
+.sidebar-item {
+    font-size: var(--sidebar-item-font) !important;
+    color: var(--sidebar-item-color) !important;
+}
+
+.submit-bar-btn {
+    width: 202rpx !important;
+    height: 72rpx !important;
+    /* margin-right: 32rpx !important; */
+    border-radius: 18px !important;
+    color: var(--color-white) !important;
+}
+
+.custom-submit-bar-height {
+    height: auto !important;
+}
+
+.card {
+    /* height: 200rpx; */
+    margin-bottom: var(--m-10);
+    background-color: var(--card-bg) !important;
+}
+
+.card-desc {
+    color: var(--color-gray);
+}
+
+.card-title {
+    color: (--color-black);
+}
+
+.card-img {
+    border-radius: 5rpx;
+}
+.card-price {
+    color: var(--color-red) !important;
+}
+
+.cart-icon {
+    /* font-size: var(--cart-icon-font) !important; */
+}
+
+/* 菜单 */
+/* .van-card__thumb {
+    width: var(--card-thumb-size, 70px) !important;
+} */

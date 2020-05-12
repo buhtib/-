@@ -1,0 +1,31 @@
+/* 全局变量 */
+page {
+    --safe-area:env(safe-area-inset-bottom);
+    --bg-white:#fff;
+    --bg-pink:#FF9381;
+    --bg-light-blue:#B3C4FE;
+    --bg-purple:#8581FF;
+
+    --color-orange:#FFB180;
+    --color-white:#fff;
+    --color-black: #141F33;
+    --color-gray: #7F7D7D;
+    --cancel-paidui-btn:#707070;
+    --color-999: #999999;
+    --color-light-gray: rgb(189, 195, 199, .5);
+    --color-red:#BE2026;
+    --color-green:#07c160;
+    
+    
+    --cell-height:86rpx;
+    --cell-m-bottom:10rpx;
+    --cell-title:32rpx;
+    --sidebar-item-font:24rpx;
+    --sidebar-item-color:#000;
+    --card-bg:#fff;
+    --cart-icon-font:72rpx;
+
+    --m-10:10rpx;
+    --m-20:20rpx;
+    --m-40:40rpx;
+}

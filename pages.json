@@ -1,0 +1,209 @@
+{
+    "easycom": {
+		"^u-(.*)": "@/uview-ui/components/u-$1/u-$1.vue"
+	},
+    "pages": [
+        //pages数组中第一项表示应用启动页,
+        {
+            "path": "pages/home/home",
+            "style": {
+                "navigationBarTitleText": "线上商城"
+            }
+        },
+        {
+            "path": "pages/home/activity/activity1",
+            "style": {
+                "navigationBarTitleText": "活动1"
+            }
+        },
+        {
+            "path": "pages/home/activity/activity2",
+            "style": {
+                "navigationBarTitleText": "活动2"
+            }
+        },
+        {
+            "path": "pages/home/activity/activity3",
+            "style": {
+                "navigationBarTitleText": "活动3"
+            }
+        },
+        {
+            "path": "pages/home/activity/activity4",
+            "style": {
+                "navigationBarTitleText": "活动4"
+            }
+        },
+        {
+            "path": "pages/home/activity/activity5",
+            "style": {
+                "navigationBarTitleText": "活动5"
+            }
+        },
+        {
+            "path": "pages/login/login",
+            "style": {
+                "navigationBarTitleText": "微信授权"
+            }
+        },
+        {
+			"path": "pages/sort/index",
+			"style": {
+				"navigationBarTitleText": "线上商城"
+			}
+        },
+        {
+			"path": "pages/shopping-cart/index",
+			"style": {
+				"navigationBarTitleText": "购物车"
+			}
+		},
+        {
+            "path": "pages/user/user",
+            "style": {
+                "navigationBarTitleText": "我的"
+            }
+        },
+        {
+            "path": "pages/home/business/index",
+            "style": {
+                "navigationBarTitleText": "全部订单",
+                "enablePullDownRefresh": true
+            }
+        },
+        {
+            "path": "pages/home/business/detail",
+            "style": {
+                "navigationBarTitleText": "订单详情"
+            }
+        },
+        {
+            "path": "pages/home/confirm-order/Index",
+            "style": {
+                "navigationBarTitleText": "支付"
+            }
+        },
+        {
+            "path": "pages/home/pay-result/Success",
+            "style": {
+                "navigationBarTitleText": "支付结果"
+            }
+        },
+        {
+            "path": "pages/home/pay-result/Fail",
+            "style": {
+                "navigationBarTitleText": "支付结果"
+            }
+        },
+        {
+            "path": "pages/user/my-order/Index",
+            "style": {
+                "navigationBarTitleText": "我的订单"
+            }
+        },
+        {
+            "path": "pages/user/my-order/OrderDetail",
+            "style": {
+                "navigationBarTitleText": "订单详情"
+            }
+        },
+        {
+            "path": "pages/user/address/index",
+            "style": {
+                "navigationBarTitleText": "我的收货地址"
+            }
+        },
+        {
+            "path": "pages/user/address/addOrEdit",
+            "style": {
+                "navigationBarTitleText": "用户地址"
+            }
+        }
+    ],
+    "tabBar": {
+        "color": "#B3B3B3",
+        "backgroundColor": "#ffffff",
+        "fontSize": "20px",
+        "list": [
+            {
+				"pagePath": "pages/home/home",
+				"text": "首页",
+				"iconPath": "static/tabbar/component.png",
+				"selectedIconPath": "static/tabbar/component_cur.png"
+            },
+            {
+				"pagePath": "pages/sort/index",
+				"text": "分类搜索",
+				"iconPath": "static/tabbar/basics.png",
+				"selectedIconPath": "static/tabbar/basics_cur.png"
+            },
+            {
+				"pagePath": "pages/shopping-cart/index",
+				"text": "购物车",
+				"iconPath": "static/tabbar/plugin.png",
+				"selectedIconPath": "static/tabbar/plugin_cur.png"
+			},
+			{
+				"pagePath": "pages/user/user",
+				"text": "我的",
+				"iconPath": "static/tabbar/about.png",
+				"selectedIconPath": "static/tabbar/about_cur.png"
+			}
+        ]
+    },
+    "requiredBackgroundModes": [
+        "location"
+    ],
+    "globalStyle": {
+        "navigationBarTextStyle": "black",
+        "navigationBarBackgroundColor": "#fff",
+        "backgroundColor": "#fff",
+        "usingComponents": {
+            "van-button": "/wxcomponents/vant/button/index",
+            "van-tree-select": "/wxcomponents/vant/tree-select/index",
+            "van-card": "/wxcomponents/vant/card/index",
+            "van-sidebar": "/wxcomponents/vant/sidebar/index",
+            "van-sidebar-item": "/wxcomponents/vant/sidebar-item/index",
+            "van-submit-bar": "/wxcomponents/vant/submit-bar/index",
+            "van-toast": "/wxcomponents/vant/toast/index",
+            "van-stepper": "/wxcomponents/vant/stepper/index",
+            "van-tag": "/wxcomponents/vant/tag/index",
+            "van-divider": "/wxcomponents/vant/divider/index",
+            "van-loading": "/wxcomponents/vant/loading/index",
+            "van-goods-action": "/wxcomponents/vant/goods-action/index",
+            "van-goods-action-icon": "/wxcomponents/vant/goods-action-icon/index",
+            "van-goods-action-button": "/wxcomponents/vant/goods-action-button/index",
+            "van-row": "/wxcomponents/vant/row/index",
+            "van-col": "/wxcomponents/vant/col/index",
+            "van-action-sheet": "/wxcomponents/vant/action-sheet/index",
+            "van-panel": "/wxcomponents/vant/panel/index",
+            "van-overlay": "/wxcomponents/vant/overlay/index",
+            "van-transition": "/wxcomponents/vant/transition/index",
+            "van-image": "/wxcomponents/vant/image/index",
+            "van-icon": "/wxcomponents/vant/icon/index",
+            "van-collapse": "/wxcomponents/vant/collapse/index",
+            "van-collapse-item": "/wxcomponents/vant/collapse-item/index",
+            "van-notify": "/wxcomponents/vant/notify/index",
+            "van-dialog": "/wxcomponents/vant/dialog/index",
+            "van-grid": "/wxcomponents/vant/grid/index",
+            "van-grid-item": "/wxcomponents/vant/grid-item/index",
+            "van-cell": "/wxcomponents/vant/cell/index",
+            "van-cell-group": "/wxcomponents/vant/cell-group/index",
+            "van-uploader": "/wxcomponents/vant/uploader/index",
+            "van-skeleton": "/wxcomponents/vant/skeleton/index",
+            "van-notice-bar": "/wxcomponents/vant/notice-bar/index",
+            "van-panel": "/wxcomponents/vant/panel/index",
+            "van-tab": "/wxcomponents/vant/tab/index",
+            "van-tabs": "/wxcomponents/vant/tabs/index",
+            "van-swipe-cell": "/wxcomponents/vant/swipe-cell/index",
+            "van-search": "/wxcomponents/vant/search/index",
+            "van-field": "/wxcomponents/vant/field/index",
+            "van-picker": "/wxcomponents/vant/picker/index",
+            "van-popup": "/wxcomponents/vant/popup/index",
+            "van-area": "/wxcomponents/vant/area/index",
+            "van-sticky": "/wxcomponents/vant/sticky/index",
+            "van-nav-bar": "/wxcomponents/vant/nav-bar/index",
+            "van-switch": "/wxcomponents/vant/switch/index"
+        }
+    }
+}

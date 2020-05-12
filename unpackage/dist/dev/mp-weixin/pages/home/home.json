@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "线上商城",
+  "usingComponents": {
+    "u-swiper": "/uview-ui/components/u-swiper/u-swiper",
+    "u-loadmore": "/uview-ui/components/u-loadmore/u-loadmore",
+    "calculate-num": "/components/calculateNum"
+  }
+}

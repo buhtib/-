@@ -1,0 +1,1 @@
+<view data-event-opts="{{[['tap',[['$emit',['goTop']]]]]}}" class="scroll-top bg-f justify-align-center" bindtap="__e"><van-icon vue-id="1" name="arrow-up" size="50rpx" color="#fff" data-com-type="wx" bind:__l="__l"></van-icon></view>

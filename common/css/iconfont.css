@@ -1,0 +1,25 @@
+@font-face {
+  font-family: iconfont;
+  font-weight: normal;
+  font-style: normal;
+  src: url('https://at.alicdn.com/t/font_1501433_uujwhnvk21c.ttf') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.iconjia:before {
+  content: "\e692";
+}
+
+.iconjian:before {
+  content: "\e655";
+}
+
+.icondelete:before {
+  content: "\e65f";
+}
