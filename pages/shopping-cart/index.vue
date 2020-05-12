@@ -1,67 +1,92 @@
 <template>
-    <view>
-        <van-submit-bar
-            :disabled="canSubmit"
-            :price="totalPrice"
-            button-text="去结算"
-            @submit="onSubmit"
-            :loading="loading"
-            button-class="submit-bar-btn font28"
-            bar-class="custom-submit-bar-height">
-            <van-row gutter="20">
-                <van-col offset="4">
-                    <van-goods-action-icon
-                        :icon="
-                            totalNum > 0
-                                ? '/static/img/car_active.png'
-                                : '/static/img/car.png'
-                        "
-                        text="购物车"
-                        :info="totalNum"
-                        icon-class="cart-icon"
-                        @click="seeInCart"
-                    />
-                </van-col>
-            </van-row>
+	<view>
+		<u-gap height="6" bg-color="#f5f5f5"></u-gap>
+		<van-cell title="操作">
+			<view class="align-center justify-end">
+				<van-button
+					size="small"
+					type="info"
+					icon="edit"
+					v-if="!editModel"
+					@click="editModel = true"
+					>编辑</van-button
+				>
+				<van-button
+					size="small"
+					type="info"
+					icon="success"
+					v-if="editModel"
+					@click="editModel = false"
+					>完成</van-button
+				>
+			</view>
+		</van-cell>
+		<u-gap height="6" bg-color="#f5f5f5"></u-gap>
+		<cartList ref="cartList" :setIsSelectAll.sync="isSelectAll" @setCheckListLength="setCheckListLength"/>
+		<u-gap height="6" bg-color="#f5f5f5"></u-gap>
+		<van-submit-bar
+			v-if="!editModel"
+			:disabled="!checkListLength"
+			:price="totalPrice"
+			button-text="去结算"
+			@submit="onSubmit"
+			:loading="loading"
+			button-class="submit-bar-btn font28"
+			bar-class=" u-padding-left-20"
+		>
+			<van-checkbox :value="isSelectAll" @change="checkboxChange"
+				>全选</van-checkbox
+			>
+		</van-submit-bar>
 
-            <!-- <van-transition :show="cartShow" name="fade-up"> -->
-            <cart slot="top" v-if="cartShow && totalNum > 0" />
-            <!-- </van-transition> -->
-        </van-submit-bar>
+		<van-submit-bar
+			v-if="editModel"
+			:disabled="!checkListLength"
+			button-text="删除"
+			@submit="delSubmit"
+			:loading="loading"
+			button-class="submit-bar-btn font28"
+			bar-class="u-padding-left-20 w-100 justify-between "
+		>
+			<van-checkbox :value="isSelectAll" @change="checkboxChange"
+				>全选</van-checkbox
+			>
+		</van-submit-bar>
 
-        <van-overlay
-				:show="overlayShow && totalNum > 0"
-				@click="overlayShowOff"
-			/>
-			
+		<u-empty mode="car" v-if="Object.values(cartList).length == 0"></u-empty>
 		<van-dialog id="van-dialog" />
-    </view>
+		<van-toast id="van-toast" />
+	</view>
 </template>
 
 <script>
-import cart from "@/components/cart";
+import cartList from "./cartList";
 
 export default {
-    components:{cart},
-    data() {
-        return {
-			//控制购物车显示
-            cartShow: false,
-			//遮罩层
-			overlayShow: false,
+	components: { cartList },
+	data() {
+		return {
 			loading: false,
-        }
+			editModel: false,
+			isSelectAll: true,
+			checkListLength:0
+		};
 	},
 	watch: {
-		totalNum(totalNum) {
-			if( !totalNum ) {
-				this.overlayShow = false
-				this.cartShow = false;
-			} 
-		}
+		totalNum: {
+			handler() {
+				this.setTabBarBadge();
+			},
+			immediate: true,
+		},
 	},
-    computed: {
-        totalPrice() {
+	onShow() {
+		this.$refs.cartList.getCheckList();
+		this.isSelectAll = true
+		this.watchCheckboxChange()
+	},
+	computed: {
+		totalPrice() {
 			let totalPrice = 0;
 			let values = Object.values(this.cartList);
 			totalPrice = values.reduce(
@@ -70,7 +95,7 @@ export default {
 				0
 			);
 			return totalPrice.toFixed(2) * 100;
-        },
+		},
 		totalNum() {
 			let num = 0;
 			let values = Object.values(this.cartList);
@@ -79,33 +104,74 @@ export default {
 				0
 			);
 			return num;
-        },
-		canSubmit() {
-			const { is_super, totalPrice } = this;
-			if (is_super) {
-				return true;
+		},
+		// canSubmit() {
+		// 	const { is_super, totalPrice } = this;
+		// 	if (is_super) {
+		// 		return true;
+		// 	} else {
+		// 		if (totalPrice == 0) {
+		// 			return true;
+		// 		} else {
+		// 			return false;
+		// 		}
+		// 	}
+		// },
+	},
+	mounted() {
+		this.setCheckListLength()
+	},
+	methods: {
+		// delSubmitDisabled() {
+		// 	console.log(!Object.values(this.$refs.cartList.checkList).length);
+		// 	if(this.$refs.cartList && this.$refs.cartList.checkList) {
+
+				
+		// 		return !Object.values(this.$refs.cartList.checkList).length
+		// 	}
+		// },
+		setCheckListLength() {
+			this.checkListLength = Object.values(this.$refs.cartList.checkList).length
+		},
+		setTabBarBadge() {
+			if (this.totalNum) {
+				uni.setTabBarBadge({
+					index: 2,
+					text: this.totalNum.toString(),
+				});
 			} else {
-				if (totalPrice == 0) {
-					return true;
-				} else {
-					return false;
-				}
+				uni.removeTabBarBadge({ index: 2 });
 			}
 		},
-    },
-    methods: {
-		overlayShowOff() {
-			this.cartShow = false;
-			this.overlayShow = false;
+		watchCheckboxChange() {
+			this.isSelectAll
+				? this.$refs.cartList.getCheckList()
+				: this.$refs.cartList.clearAllCheckList();
 		},
-		seeInCart() {
-			if (!this.totalNum) return;
-			if (this.cartShow && this.overlayShow) {
-				this.overlayShowOff();
-				return;
+		checkboxChange(e) {
+			this.isSelectAll = e.detail;
+			this.watchCheckboxChange()
+			this.setCheckListLength()
+		},
+		delSubmit() {
+			this.$Dialog
+				.confirm({
+					title: "提示",
+					message: "是否删除选中物品?",
+				})
+				.then(() => {
+					this.delCheckedGoods();
+					this.$Toast("删除成功");
+				})
+				.catch(() => {
+				});
+		},
+		delCheckedGoods() {
+			const { checkList } = this.$refs.cartList
+			for (const key in checkList) {
+				this.removeOneGood(checkList[key]);
 			}
-			this.cartShow = true;
-			this.overlayShow = true;
+			this.$refs.cartList.clearAllCheckList()
 		},
 		onSubmit() {
 			const { totalPrice } = this;
@@ -115,14 +181,11 @@ export default {
 				url: `/pages/home/confirm-order/Index?totalPrice=${totalPrice}`,
 				complete: () => {
 					this.loading = false;
-					this.overlayShowOff();
 				},
 			});
 		},
-    },
-}
+	},
+};
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

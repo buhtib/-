@@ -112,6 +112,14 @@ export default {
 		//存入localStorage
 		setStore('buyCart', state.cartList);
 	},
+	//移除某个商品
+	removeOneGood(state, { id ,name, introduce, src ,price ,type_id ,num, specification }) {
+		let cart = state.cartList;
+		delete cart[id]
+		state.cartList = {...cart};
+		//存入localStorage
+		setStore('buyCart', state.cartList);
+	},
 	//网页初始化时从本地缓存获取购物车数据
 	[INIT_BUYCART](state) {
 		let initCart = getStore('buyCart');

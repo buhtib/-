@@ -30,12 +30,12 @@ export default {
                             resolve(res.data)
                         }else {
                             reject(res.msg)
-                            Toast(res.msg || '出现异常, 请刷新重试')
+                            Toast(res.msg || '出现异常, 请重试')
                         }
                     },
                     fail(res) {
                         reject(res.msg)
-                        Toast(res.msg || '出现异常, 请刷新重试')
+                        Toast(res.msg || '出现异常, 请重试')
                     },
                     complete() {
                         uni.hideLoading()
@@ -60,12 +60,12 @@ export default {
                         resolve(res.data)
                     }else {
                         reject(res.msg)
-                        Toast(res.msg || '出现异常, 请刷新重试')
+                        Toast(res.msg || '出现异常, 请重试')
                     }
                 },
                 fail(res) {
                     reject(res.msg)
-                    Toast(res.msg || '出现异常, 请刷新重试')
+                    Toast(res.msg || '出现异常, 请重试')
                 },
                 complete() {
                     uni.hideLoading()
@@ -99,12 +99,12 @@ export default {
                             resolve(res.data)
                         }else {
                             reject(res.msg)
-                            Toast(res.msg || '出现异常, 请刷新重试')
+                            Toast(res.msg || '出现异常, 请重试')
                         }
                     },
                     fail(res) {
                         reject(res.msg)
-                        Toast(res.msg || '出现异常, 请刷新重试')
+                        Toast(res.msg || '出现异常, 请重试')
                     },
                     complete() {
                         uni.hideLoading()
@@ -140,12 +140,12 @@ export default {
                             resolve(res.data)
                         }else {
                             reject(res.msg)
-                            Toast(res.msg || '出现异常, 请刷新重试')
+                            Toast(res.msg || '出现异常, 请重试')
                         }
                     },
                     fail(res) {
                         reject(res.msg)
-                        Toast(res.msg || '出现异常, 请刷新重试')
+                        Toast(res.msg || '出现异常, 请重试')
                     },
                     complete() {
                         uni.hideLoading()

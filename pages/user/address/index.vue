@@ -1,6 +1,6 @@
 <template>
     <view>
-        <view class="u-padding-left-20 u-padding-right-20 address-content">
+        <view class="u-padding-left-20 u-padding-right-20 address-content" v-if="siteList.length > 0">
             <view class="adress-content">
                 <view
                     class="item shadow u-margin-top-20 u-margin-bottom-20 justify-between"
@@ -29,7 +29,11 @@
             </view>
         </view>
 
-		<van-button icon="plus" type="primary" size="large" class="add-btn" @click="toAddSite">添加新地址</van-button>
+		<u-empty text="没有收货地址哦,添加一个吧" mode="address" v-else></u-empty>
+
+		<view class="add-btn">
+			<van-button round icon="plus" type="primary" size="large"  @click="toAddSite">添加新地址</van-button>
+		</view>
 		<van-dialog id="van-dialog" confirm-button-color="#BE2026"/>
 		<van-toast id="van-toast" />
     </view>
@@ -149,7 +153,8 @@ export default {
 
 <style lang="scss" scoped>
 .address-content {
-    height: calc( 100vh - 60px);
+	box-sizing: border-box;
+	height: calc(100vh - 50px - var(--safe-area));
 	overflow: auto;
 	.item {
         display: flex;
@@ -192,12 +197,14 @@ export default {
 			color: #999999;
         }
 
-		.add-btn {
-			position: absolute;
-			bottom:var(--safe-area);
-			left: 0;
-			width: 100%;
-		}
 	}
+}
+.add-btn {
+	box-sizing: border-box;
+	position: absolute;
+	bottom:var(--safe-area);
+	left: 0;
+	width: 100%;
+	padding: 0 20rpx;
 }
 </style>

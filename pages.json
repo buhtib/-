@@ -203,7 +203,9 @@
             "van-area": "/wxcomponents/vant/area/index",
             "van-sticky": "/wxcomponents/vant/sticky/index",
             "van-nav-bar": "/wxcomponents/vant/nav-bar/index",
-            "van-switch": "/wxcomponents/vant/switch/index"
+            "van-switch": "/wxcomponents/vant/switch/index",
+            "van-checkbox": "/wxcomponents/vant/checkbox/index",
+            "van-checkbox-group": "/wxcomponents/vant/checkbox-group/index"
         }
     }
 }

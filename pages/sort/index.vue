@@ -220,6 +220,7 @@ page {
 }
 .content {
 	background-color: #f5f5f5;
+	overflow: hidden;
 }
 .menu {
 	box-sizing: border-box;

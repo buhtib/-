@@ -41,7 +41,7 @@
 					</view>
 					<view class="bottom align-center justify-between u-margin-top-20">
 						<view class="align-center">
-							<view class=" colorf0 bold u-font-30 u-margin-right-20" >
+							<view class=" colore6 bold u-font-30 u-margin-right-20" >
 								￥{{item.price}}
 							</view>
 							<view class=" colorae  u-font-24  delete-line" >
@@ -114,17 +114,6 @@ export default {
 					thumb:
 						"//img12.360buyimg.com/n7/jfs/t1/52408/35/3554/78293/5d12e9cfEfd118ba1/ba5995e62cbd747f.jpg!q90.jpg",
 				},
-				{
-					id: this.$u.guid(),
-					price: 20,
-					dis_price: 45,
-					introduce: "好吃吃",
-					name: "韭菜鸡蛋" + this.$u.guid(6),
-					specification: "500g/一包",
-					thumb:
-						"//img12.360buyimg.com/n7/jfs/t1/52408/35/3554/78293/5d12e9cfEfd118ba1/ba5995e62cbd747f.jpg!q90.jpg",
-				},
-				,
 				{
 					id: this.$u.guid(),
 					price: 20,
