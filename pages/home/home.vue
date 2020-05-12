@@ -158,7 +158,7 @@ export default {
 		},
 	},
 	methods: {
-		//购物车里的cartList数据变化时  改变menuList的数量 及计算总价和总数
+		//购物车里的cartList数据变化时  改变List的数量 及计算总价和总数
 		changeMenuList() {
 			let { cartList } = this;
 			let key = Object.keys(cartList);

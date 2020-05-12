@@ -1,9 +1,0 @@
-{
-  "navigationBarTitleText": "我的订单",
-  "usingComponents": {
-    "all": "/pages/user/my-order/All",
-    "payed": "/pages/user/my-order/Payed",
-    "wait-send": "/pages/user/my-order/waitSend",
-    "receiv": "/pages/user/my-order/receiv"
-  }
-}

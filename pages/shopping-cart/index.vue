@@ -56,7 +56,7 @@ export default {
 		totalNum(totalNum) {
 			if( !totalNum ) {
 				this.overlayShow = false
-				this.cartShow = false
+				this.cartShow = false;
 			} 
 		}
 	},

@@ -1,1 +1,0 @@
-<block wx:if="{{loading}}"><view class="page-loading"><van-loading vue-id="1" color="#1989fa" vertical data-com-type="wx" bind:__l="__l" vue-slots="{{['default']}}"><view slots="default">加载中...</view></van-loading></view></block>

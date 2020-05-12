@@ -1,1 +1,7 @@
 unpackage
+
+/.unpackage/
+
+unpackage/
+
+dist/
