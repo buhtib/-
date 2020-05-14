@@ -32,7 +32,7 @@
 			@submit="onSubmit"
 			:loading="loading"
 			button-class="submit-bar-btn font28"
-			bar-class=" u-padding-left-20"
+			bar-class=" u-padding-left-20 custom-submit-bar-height"
 		>
 			<van-checkbox :value="isSelectAll" @change="checkboxChange"
 				>全选</van-checkbox
@@ -46,7 +46,7 @@
 			@submit="delSubmit"
 			:loading="loading"
 			button-class="submit-bar-btn font28"
-			bar-class="u-padding-left-20 w-100 justify-between "
+			bar-class="u-padding-left-20 w-100 justify-between custom-submit-bar-height"
 		>
 			<van-checkbox :value="isSelectAll" @change="checkboxChange"
 				>全选</van-checkbox
@@ -68,27 +68,37 @@ export default {
 		return {
 			loading: false,
 			editModel: false,
-			isSelectAll: true,
-			checkListLength:0
+			isSelectAll: true
 		};
 	},
 	watch: {
 		totalNum: {
-			handler() {
+			handler(totalNum) {
 				this.setTabBarBadge();
 			},
 			immediate: true,
 		},
+		checkList() {
+			const {checkList, cartList} = this
+			let checkListLength = Object.values(checkList).length
+			let cartListLength = Object.values(cartList).length
+			if( checkListLength == cartListLength) {
+				this.isSelectAll = true
+			}else {
+				this.isSelectAll = false
+			}
+		}
 	},
 	onShow() {
-		this.$refs.cartList.getCheckList();
+		this.setTabBarBadge();
+		this.setCheckList({...this.cartList})
 		this.isSelectAll = true
 		this.watchCheckboxChange()
 	},
 	computed: {
 		totalPrice() {
 			let totalPrice = 0;
-			let values = Object.values(this.cartList);
+			let values = Object.values(this.checkList);
 			totalPrice = values.reduce(
 				(total, currentValue) =>
 					+total + +currentValue.price * +currentValue.num,
@@ -105,6 +115,9 @@ export default {
 			);
 			return num;
 		},
+		checkListLength() {
+			return Object.values(this.checkList).length
+		}
 		// canSubmit() {
 		// 	const { is_super, totalPrice } = this;
 		// 	if (is_super) {
@@ -118,21 +131,7 @@ export default {
 		// 	}
 		// },
 	},
-	mounted() {
-		this.setCheckListLength()
-	},
 	methods: {
-		// delSubmitDisabled() {
-		// 	console.log(!Object.values(this.$refs.cartList.checkList).length);
-		// 	if(this.$refs.cartList && this.$refs.cartList.checkList) {
-
-				
-		// 		return !Object.values(this.$refs.cartList.checkList).length
-		// 	}
-		// },
-		setCheckListLength() {
-			this.checkListLength = Object.values(this.$refs.cartList.checkList).length
-		},
 		setTabBarBadge() {
 			if (this.totalNum) {
 				uni.setTabBarBadge({
@@ -145,13 +144,12 @@ export default {
 		},
 		watchCheckboxChange() {
 			this.isSelectAll
-				? this.$refs.cartList.getCheckList()
-				: this.$refs.cartList.clearAllCheckList();
+				? this.setCheckList({...this.cartList})
+				: this.setCheckList({})
 		},
 		checkboxChange(e) {
 			this.isSelectAll = e.detail;
 			this.watchCheckboxChange()
-			this.setCheckListLength()
 		},
 		delSubmit() {
 			this.$Dialog
@@ -167,11 +165,11 @@ export default {
 				});
 		},
 		delCheckedGoods() {
-			const { checkList } = this.$refs.cartList
+			const { checkList } = this
 			for (const key in checkList) {
 				this.removeOneGood(checkList[key]);
 			}
-			this.$refs.cartList.clearAllCheckList()
+			this.setCheckList({})
 		},
 		onSubmit() {
 			const { totalPrice } = this;

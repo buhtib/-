@@ -1,7 +1,7 @@
 <template>
 	<view class="calculate-num">
 		<van-transition :show="goodNum" name="slide-left">
-			<view @click="removeOutCart()">
+			<view @click.stop="removeOutCart()">
 				<van-icon name="/static/img/delete.png" size="44rpx" />
 			</view>
 		</van-transition>
@@ -10,7 +10,7 @@
 			<view class="cart_num font30">{{ goodNum }}</view>
 		</van-transition>
 
-		<view class="add_icon" @click="addToCart()">
+		<view class="add_icon" @click.stop="addToCart()">
 			<van-icon name="/static/img/add.png" size="44rpx" />
 		</view>
 	</view>

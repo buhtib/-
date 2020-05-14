@@ -77,8 +77,8 @@ export default {
 			}
 		},1000)
 	},
-	setForm(state, vuexForm) {
-		state.vuexForm = Object.assign(state.vuexForm, vuexForm);
+	setForm(state, addressForm) {
+		state.addressForm = Object.assign(state.addressForm, addressForm);
 	},
 	setHasAddress(state, hasAddress) {
 		state.hasAddress = hasAddress;
@@ -119,6 +119,19 @@ export default {
 		state.cartList = {...cart};
 		//存入localStorage
 		setStore('buyCart', state.cartList);
+	},
+	setCheckList(state, checkList) {
+		state.checkList = checkList;
+	},
+	addOneCheckGood(state, good) {
+		let checkList = state.checkList;
+		checkList[good.id] = good
+		state.checkList = { ...checkList };
+	},
+	removeOneCheckGood(state, { id, name, introduce, src, price, type_id, num, specification }) {
+		let checkList = state.checkList;
+		delete checkList[id]
+		state.checkList = { ...checkList };
 	},
 	//网页初始化时从本地缓存获取购物车数据
 	[INIT_BUYCART](state) {

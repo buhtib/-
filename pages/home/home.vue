@@ -23,23 +23,29 @@
 				class="order bg-f shadow u-margin-top-30 u-margin-bottom-30"
 				v-for="(item, index) in dataList"
 				:key="item.id"
-			>
+			>	
+				<view class="sp-good" @click="$u.route('/pages/good-detail/index')">
+					<good-special-block />
+				</view>
 				<van-image
 					width="100%"
 					height="160"
 					image-class="img"
 					lazy-load
+					@click="$u.route('/pages/good-detail/index')"
 					src="https://lgts.mynatapp.cc/management?id=banner2&type=sm&suffix=jpg"
 					fit="cover"
 				/>
-				<view class="u-padding-20 column ">
-					<view class="u-font-30 bold u-line-2">
-						{{item.name}}
+				<view class="u-padding-20 column " >
+					<view class="column" @click="$u.route('/pages/good-detail/index')">
+						<view class="u-font-30 bold u-line-2">
+							{{item.name}}
+						</view>
+						<view class="align-center u-margin-top-20">
+							规格:<van-tag  >{{item.specification}}</van-tag>
+						</view>
 					</view>
-					<view class="align-center u-margin-top-20">
-						规格:<van-tag  >{{item.specification}}</van-tag>
-					</view>
-					<view class="bottom align-center justify-between u-margin-top-20">
+					<view class="bottom align-center justify-between u-margin-top-30">
 						<view class="align-center">
 							<view class=" colore6 bold u-font-30 u-margin-right-20" >
 								￥{{item.price}}
@@ -102,7 +108,7 @@ export default {
 					name: "韭菜鸡蛋" + this.$u.guid(6),
 					specification: "500g/一包",
 					thumb:
-						"//img12.360buyimg.com/n7/jfs/t1/52408/35/3554/78293/5d12e9cfEfd118ba1/ba5995e62cbd747f.jpg!q90.jpg",
+						"https://lgts.mynatapp.cc/management?id=banner1&type=sm&suffix=jpg",
 				},
 				{
 					id: this.$u.guid(),
@@ -191,8 +197,9 @@ export default {
 <style lang="scss">
 .page-box {
 	box-sizing: border-box;
-	padding: 0 20rpx;
+	padding: 0 20rpx calc(100rpx + var(--safe-area));
 	.order {
+		position: relative;
 		min-height: 400rpx;
 		border-radius: 20rpx;
 
@@ -200,6 +207,13 @@ export default {
 			border-radius: 20rpx 20rpx 0 0;
 			width: 99%;
 			margin: 0 auto ;
+		}
+
+		.sp-good {
+			position: absolute;
+			right: 40rpx;
+			top: 0;
+			z-index: 10;
 		}
 	}
 }

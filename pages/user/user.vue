@@ -64,7 +64,7 @@
 					is-link
 					title="商家设置中心"
 					link-type="navigateTo"
-					url="/pages/user/address/index"
+					url="/pages/home/business/index"
 				>
 					<van-icon name="shop-o" color="#07c160" slot="icon" class="u-margin-right-10"/>
 				</van-cell>

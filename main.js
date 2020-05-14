@@ -5,8 +5,10 @@ import baseUrl from './utils/api'
 import uView from "uview-ui";
 import pageLoading from '@/components/page-loading/Index';
 import scrollTop from '@/components/scroll-top';
+import goodSpecialBlock from '@/components/good-special-block';
 Vue.component('page-loading', pageLoading)
 Vue.component('scroll-top', scrollTop)
+Vue.component('good-special-block', goodSpecialBlock)
 import mixins from './common/js/mixins'
 import store from './store'
 import './common/js/public'

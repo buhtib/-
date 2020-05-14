@@ -32,7 +32,7 @@ page {
 }
 
 .custom-submit-bar-height {
-    height: auto !important;
+    height: calc(128rpx + var(--safe-area)) !important;
 }
 
 .card {

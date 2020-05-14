@@ -11,7 +11,7 @@ export default [
 				dis_price:45,
 				introduce: "好吃",
                 name: "韭菜鸡蛋" +  u.guid(6),
-                specification:'500g/一包',
+                specification:'500g',
 				thumb:
 					"//img12.360buyimg.com/n7/jfs/t1/52408/35/3554/78293/5d12e9cfEfd118ba1/ba5995e62cbd747f.jpg!q90.jpg",
 			},
@@ -21,7 +21,7 @@ export default [
 				dis_price:45,
 				introduce: "好吃吃",
                 name: "韭菜鸡蛋"+  u.guid(6),
-                specification:'500g/一包',
+                specification:'500g',
 				thumb:
 					"//img12.360buyimg.com/n7/jfs/t1/52408/35/3554/78293/5d12e9cfEfd118ba1/ba5995e62cbd747f.jpg!q90.jpg",
 			},
@@ -31,7 +31,7 @@ export default [
 				dis_price:45,
 				introduce: "好吃吃",
                 name: "韭菜鸡蛋"+  u.guid(6),
-                specification:'500g/一包',
+                specification:'500g',
 				thumb:
 					"//img12.360buyimg.com/n7/jfs/t1/52408/35/3554/78293/5d12e9cfEfd118ba1/ba5995e62cbd747f.jpg!q90.jpg",
 			},
@@ -47,7 +47,7 @@ export default [
 				dis_price:45,
 				introduce: "好吃吃",
                 name: "韭菜鸡蛋"+ u.guid(6),
-                specification:'500g/一包',
+                specification:'500g',
 				thumb:
 					"//img12.360buyimg.com/n7/jfs/t1/52408/35/3554/78293/5d12e9cfEfd118ba1/ba5995e62cbd747f.jpg!q90.jpg",
 			},
@@ -57,7 +57,7 @@ export default [
 				dis_price:45,
 				introduce: "好吃吃",
                 name: "韭菜鸡蛋"+  u.guid(6),
-                specification:'500g/一包',
+                specification:'500g',
 				thumb:
 					"//img12.360buyimg.com/n7/jfs/t1/52408/35/3554/78293/5d12e9cfEfd118ba1/ba5995e62cbd747f.jpg!q90.jpg",
 			},
@@ -67,7 +67,7 @@ export default [
 				dis_price:45,
 				introduce: "好吃吃",
                 name: "韭菜鸡蛋"+ u.guid(6),
-                specification:'500g/一包',
+                specification:'500g',
 				thumb:
 					"//img12.360buyimg.com/n7/jfs/t1/52408/35/3554/78293/5d12e9cfEfd118ba1/ba5995e62cbd747f.jpg!q90.jpg",
 			},

@@ -26,44 +26,43 @@
 				>
 					<view
 						v-for="parent in menuList"
+						class="bg-f"
 						:key="parent.type_id"
 						:id="'inToView' + parent.type_id"
+						@click="$u.route('/pages/good-detail/index')"
 					>
-						<van-cell-group :border="false">
-							<van-cell
-								title-class="cell-title"
-								custom-class="cell"
-								:border="false"
-							>
-								<van-tag slot="title" type="primary" size="large">{{
-									parent.type
-								}}</van-tag>
-							</van-cell>
-						</van-cell-group>
-						<van-card
-							v-for="good in parent.items"
-							:key="good.id"
-							:num="good.num"
-							:price="good.price"
-							:desc="good.introduce"
-							:title="good.name"
-							:thumb="good.thumb"
-							title-class="van-multi-ellipsis--l2 card-title font28"
-							custom-class="card"
-							lazy-load
-							thumb-class="card-img"
-							price-class="card-price font32"
-							desc-class="card-desc van-multi-ellipsis--l2"
-							thumb-mode="fill"
-						>
-							<view slot="footer"  class="u-margin-top-30 align-center justify-between">
-								<view class="align-center">
-									<view class="bold">规格:</view>
-									<van-tag  >{{good.specification}}</van-tag>
+						<view class="u-padding-20">
+							<u-section :title="parent.type" :right="false" :color="$u.color['primary']"></u-section>
+						</view>
+						<u-gap height="10" bg-color="#f5f5f5"></u-gap>
+						<view
+							class="u-margin-top-20  u-padding-bottom-10 align-center van-hairline--bottom"
+							v-for="(good, index) in parent.items"
+							:key="index">
+							<view class="justify-center flex1" style="height:140rpx" 
+							@click="$u.route('/pages/good-detail/index')">
+								<view class="u-margin-right-20">
+									<van-image
+										width="140rpx"
+										height="140rpx"
+										fit="cover"
+										src="https://lgts.mynatapp.cc/management?id=banner1&type=sm&suffix=jpg"
+									/>
 								</view>
-								<calculate-num :good="good" />
+
+								<view class=" justify-between column flex1 border-box u-padding-right-20" >
+									<view class="u-font-28 van-multi-ellipsis--l2 ">{{ good.name }}</view>
+									<view class="align-center justify-between " @click.stop="false">
+										<view class="u-font-30 bold colore6 align-center">
+											&yen;{{ good.price }}
+											<text class="u-font-26 color6b split">{{good.specification}}</text>
+										</view>
+										<calculate-num :good="good" />
+									</view>
+								</view>
 							</view>
-						</van-card>
+						</view>
+						<u-gap height="10" bg-color="#f5f5f5"></u-gap>
 					</view>
 				</scroll-view>
 			</view>
@@ -213,36 +212,36 @@ export default {
 <style lang="scss">
 page {
 	background-color: #fff;
-}
-.van-card__content {
-	flex-direction: column !important;
-	justify-content: space-between !important;
-}
-.content {
-	background-color: #f5f5f5;
-	overflow: hidden;
-}
-.menu {
-	box-sizing: border-box;
-	display: flex;
-	// height: ;
-	overflow: hidden;
-}
-.tabs {
-	width: 160rpx;
-	height: 100%;
-	overflow-y: auto;
-}
-.right-content {
-	flex: 1;
-	height: 100%;
-	overflow-y: auto;
-}
-.right-content scroll-view {
-	height: 100%;
-}
-.card-img {
-	width: 164rpx !important;
-	height: 164rpx !important;
+	.content {
+		background-color: #f5f5f5;
+		overflow: hidden;
+		.menu {
+			box-sizing: border-box;
+			display: flex;
+			// height: ;
+			overflow: hidden;
+		}
+		.tabs {
+			width: 160rpx;
+			height: 100%;
+			overflow-y: auto;
+		}
+		.right-content {
+			flex: 1;
+			height: 100%;
+			overflow-y: auto;
+			scroll-view {
+				height: 100%;
+			}
+			.split {
+				&::before {
+					content: '/';
+					display: inline-block;
+					margin-left: 10rpx;
+					margin-right: 10rpx;
+				}
+			}
+		}
+	}
 }
 </style>

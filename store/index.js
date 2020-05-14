@@ -8,12 +8,9 @@ import actions from './actions'
 const store = new Vuex.Store({
     state: {
         systemInfo:{},
-        // /**
-        //  * 是否需要强制登录
-        //  */
-        // forcedLogin: false,
         // 加入购物车的商品列表
         cartList: {},
+        checkList:{},
         isIphoneX:false,
         wxCode:'',
         userInfo:{},
@@ -24,7 +21,7 @@ const store = new Vuex.Store({
         codeTime:60, 
         getCodeFlag:true,
         hasAddress:false,
-        vuexForm:{
+        addressForm:{
             name:'',
             phone:'',
             address:'',

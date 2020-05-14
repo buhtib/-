@@ -12,6 +12,15 @@
     z-index: 200;
 }
 
+/*固定在底部*/ 
+.fixed-bottom {
+    position: fixed;
+    bottom:var(--safe-area);
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+}
+
 /*导航 按压效果*/
 .navigator-hover {
 	background-color: rgba(33,150,243 ,.2) !important;

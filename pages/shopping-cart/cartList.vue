@@ -10,7 +10,8 @@
 					<van-checkbox  :value="checkList[good.id] ? true : false"
 						@change="checkboxChange(good, $event)"></van-checkbox>
 				</view>
-				<view class="justify-center flex1" style="height:140rpx">
+				<view class="justify-center flex1" style="height:140rpx" 
+				@click="$u.route('/pages/good-detail/index')">
 					<view class="u-margin-right-20">
 						<van-image
 							width="140rpx"
@@ -21,10 +22,12 @@
 					</view>
 
 					<view class=" justify-between column flex1 border-box u-padding-right-20" >
-						<view class="u-font-28 van-ellipsis ">{{ good.name }}</view>
-						<view class="u-font-22 van-ellipsis ">规格:<van-tag  >{{good.specification}}</van-tag></view>
-						<view class="align-center justify-between ">
-							<view class="u-font-30 bold colore6">&yen;{{ good.price }}</view>
+						<view class="u-font-28 van-multi-ellipsis--l2 ">{{ good.name }}</view>
+						<view class="align-center justify-between " @click.stop="false">
+							<view class="u-font-30 bold colore6 align-center">
+								&yen;{{ good.price }}
+								<text class="u-font-26 color6b split">{{good.specification}}</text>
+							</view>
 							<calculate-num :good="good" />
 						</view>
 					</view>
@@ -43,39 +46,19 @@ export default {
 	},
 	data() {
 		return {
-			checkList:{}
+			
 		};
 	},
 	methods: {
-		watchCheckList() {
-			const {checkList} = this
-			let checkListLength = Object.values(checkList).length
-			let cartListLength = Object.values(this.cartList).length
-			if( checkListLength == cartListLength) {
-				this.$emit('update:setIsSelectAll', true)
-			}else {
-				this.$emit('update:setIsSelectAll', false)
-			}
-		},
-		getCheckList() {
-			this.checkList = { ...this.cartList }
-		},
-		clearAllCheckList() {
-			this.checkList = {}
-			this.$emit('setCheckListLength')
-		},
 		checkboxChange(good, e) {
 			const check = e.detail
 			const {checkList} = this
 			if( check ) {
-				checkList[good.id] = good
+				this.addOneCheckGood(good)
 			}else {
-				delete checkList[good.id]
+				this.removeOneCheckGood(good)
 			}
-			this.checkList = checkList
 			this.$forceUpdate()
-			this.watchCheckList()
-			this.$emit('setCheckListLength')
 		},
 	},
 };
@@ -93,5 +76,13 @@ page {
 }
 .good {
 	border-bottom: 1px solid #eee;
+	.split {
+		&::before {
+			content: '/';
+			display: inline-block;
+			margin-left: 10rpx;
+			margin-right: 10rpx;
+		}
+	}
 }
 </style>

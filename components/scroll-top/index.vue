@@ -18,5 +18,6 @@ export default {
         height: 100rpx;
         border-radius: 50%;
         background-color: rgba(0, 0, 0, .4);
+        z-index: 12;
     }
 </style>

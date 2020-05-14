@@ -10,7 +10,7 @@
         <view class="u-font-20 color95 u-margin-top-20 u-margin-bottom-20">
             公告: 尊敬的顾客, 你好。要是收到包装的损坏的食品，请务第一时间致电我们，我们会给你满意的答复，谢谢</view>
         <view class="u-font-20 color95 u-margin-top-10 u-margin-bottom-10" @click="call">
-            <van-tag type="primary" size="medium" plain >商家电话:110</van-tag>
+            <van-tag type="primary" size="medium" plain >商家电话:{{tel}}</van-tag>
         </view>
         <view>
             <van-tag plain type="danger" style="margin-right:10rpx">15减6</van-tag>
@@ -25,7 +25,7 @@
 export default {
     data() {
         return {
-            tel:'110'
+            tel:'13388888888'
         }
     },
     methods: {
