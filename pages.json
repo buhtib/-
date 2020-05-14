@@ -71,12 +71,6 @@
             }
         },
         {
-            "path": "pages/home/business/detail",
-            "style": {
-                "navigationBarTitleText": "订单详情"
-            }
-        },
-        {
             "path": "pages/home/confirm-order/Index",
             "style": {
                 "navigationBarTitleText": "支付"
@@ -129,6 +123,12 @@
             "style": {
                 "navigationBarTitleText": "全部订单",
                 "enablePullDownRefresh": true
+            }
+        },
+        {
+            "path": "pages/home/business/order/detail",
+            "style": {
+                "navigationBarTitleText": "订单详情"
             }
         }
     ],
