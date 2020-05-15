@@ -130,6 +130,18 @@
             "style": {
                 "navigationBarTitleText": "订单详情"
             }
+        },
+        {
+            "path": "pages/home/business/tel",
+            "style": {
+                "navigationBarTitleText": "电话设置"
+            }
+        },
+        {
+            "path": "pages/home/business/fullReduction",
+            "style": {
+                "navigationBarTitleText": "满减设置"
+            }
         }
     ],
     "tabBar": {

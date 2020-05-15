@@ -9,7 +9,8 @@ Toast.setDefaultOptions({
     forbidClick:true
 })
 Dialog.setDefaultOptions({
-    zIndex:101
+    zIndex:101,
+    showCancelButton:true
 })
 Vue.prototype.$Toast = Toast
 Vue.prototype.$Notify = Notify
