@@ -1,7 +1,10 @@
 <template>
 	<view >
         <view class="u-margin-20" v-if="fullReductionList.length > 0">
-            <u-section title="左滑进行删除" :right="false" color="#1989fa"></u-section>
+            <van-notice-bar
+			left-icon="warning"
+			text="可以左滑删除满减, 最多可添加6条满减"
+			/>
         </view>
 		<view class="set-content">
 			<view v-if="fullReductionList.length > 0">
@@ -29,7 +32,7 @@
 								item.text
 							}}</van-tag>
 						</view>
-						<view slot="right">
+						<view slot="right" >
 							<van-button type="danger" custom-style="width:80px; height:140rpx"
 								@click="del(i)">删除</van-button>
 						</view>
@@ -39,7 +42,8 @@
                         custom-style="border-radius: 50%; margin-right:30px"  @click="del">
                         <u-icon name="minus" color="#fff" size="32"></u-icon>
                     </van-button> -->
-                    <van-button   type="danger"  custom-style="border-radius: 50%"  @click="add">
+                    <van-button   type="danger"  custom-style="border-radius: 50%"  @click="add"
+						v-if="fullReductionList.length < 6">
                         <u-icon name="plus" color="#fff" size="32"></u-icon>
                     </van-button>
                 </view>
@@ -107,7 +111,7 @@ export default {
             const length = this.fullReductionList.length 
             const prevArrivePrice = length > 0 ? this.fullReductionList[length - 1].arrivePrice : 0
             const prevDiscount = length > 0 ? this.fullReductionList[length - 1].discount : 0
-            const commonRowData = { arrivePrice: prevArrivePrice, discount: prevDiscount, text: "0减0" }
+			const commonRowData = { arrivePrice: prevArrivePrice, discount: prevDiscount, text: "0减0" }
             this.fullReductionList.push(commonRowData)
             this.$Toast('添加成功')
         },
@@ -136,8 +140,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+page {
+	overflow: hidden;
+}
 .set-content {
-	height: calc(100vh - var(--safe-area) - 50px - 40px);
+	height: calc(100vh - var(--safe-area) - 110px);
 	overflow: auto;
 
 	.tag-priview {
