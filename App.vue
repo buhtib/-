@@ -4,7 +4,7 @@
 	
 	export default {
 		onLaunch: function() {
-			// this.CLEAR_CART()
+			this.CLEAR_CART()
 			this.getSystemInfo()
 			// this.login().then(res=>{
 			// 	this.getUserInfo()
