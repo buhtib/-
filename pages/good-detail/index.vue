@@ -66,8 +66,8 @@
 			</van-tab>
 		</van-tabs>
 
-		<view class="fixed-bottom justify-between align-center u-padding-left-30 u-padding-right-40 van-hairline--top" 
-			style="height:70px;">
+		<view class="fixed-bottom justify-between align-center u-padding-left-30 u-padding-right-40" 
+			style="height:70px;border-top:1rpx solid #eee">
 			<view class="flex align-center">
 				<navigator 
 				open-type="switchTab"

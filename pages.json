@@ -142,6 +142,19 @@
             "style": {
                 "navigationBarTitleText": "满减设置"
             }
+        },
+        {
+            "path": "pages/home/business/activitySetting/activitySetting",
+            "style": {
+                "navigationBarTitleText": "活动商品管理",
+                "enablePullDownRefresh": true
+            }
+        },
+        {
+            "path": "pages/home/business/activitySetting/detail",
+            "style": {
+                "navigationBarTitleText": "活动商品设置"
+            }
         }
     ],
     "tabBar": {

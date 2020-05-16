@@ -25,10 +25,12 @@
 
                         <view class=" justify-between column flex1 border-box u-padding-right-20" >
                             <view class="u-font-28 van-ellipsis ">{{ good.name }}</view>
-                            <view class="u-font-22 van-ellipsis ">规格:<van-tag  >{{good.specification}}</van-tag></view>
                             <view class="align-center justify-between ">
-                                <view class="u-font-30 bold colore6">&yen;{{ good.price }}</view>
-                                ✖ {{ good.num }}
+                                <view class="u-font-30 bold colore6 align-center">
+                                    &yen;{{ good.price }}
+                                    <text class="u-font-26 color6b split">{{good.specification}}</text>
+                                </view>
+                                <view>✖ {{ good.num }}</view>
                             </view>
                         </view>
                     </view>
@@ -180,5 +182,14 @@ export default {
     }
     .good {
         border-bottom: 1px solid #eee;
+
+        .split {
+            &::before {
+                content: '/';
+                display: inline-block;
+                margin-left: 10rpx;
+                margin-right: 10rpx;
+            }
+        }
     }
 </style>

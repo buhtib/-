@@ -21,6 +21,14 @@
     background-color: #fff;
 }
 
+/*固定在底部van-button 按钮*/ 
+.submit-btn {
+	position: fixed;
+	left: 0;
+	bottom: var(--safe-area);
+	width: 100%;
+}
+
 /*导航 按压效果*/
 .navigator-hover {
 	background-color: rgba(33,150,243 ,.2) !important;

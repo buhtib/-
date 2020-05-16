@@ -22,7 +22,7 @@ export default {
 		return {
 			dataLsit: [
 				{ name: "订单管理", url: "/pages/home/business/order/index" },
-				{ name: "活动商品管理", url: "/pages/home/business/order/index" },
+				{ name: "活动商品管理", url: "/pages/home/business/activitySetting/activitySetting" },
 				{ name: "满减设置", url: "/pages/home/business/fullReduction" },
 				{ name: "商家电话设置", url: "/pages/home/business/tel" }
 			],

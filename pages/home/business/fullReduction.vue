@@ -1,40 +1,44 @@
 <template>
 	<view >
-        <view class="justify-end u-margin-20" v-if="fullReductionList.length > 0">
-            <van-button type="info" size="small">编辑</van-button>
+        <view class="u-margin-20" v-if="fullReductionList.length > 0">
+            <u-section title="左滑进行删除" :right="false" color="#1989fa"></u-section>
         </view>
 		<view class="set-content">
 			<view v-if="fullReductionList.length > 0">
-				<view
-					v-for="(item, i) in fullReductionList"
-					:key="i"
-					class="align-center justify-around bg-f u-margin-bottom-80 u-padding-top-30 u-padding-bottom-30 relative"
-				>
-					<text class="u-font-40">满</text>
-					<van-stepper
-						:value="item.arrivePrice"
-						:min="0"
-						button-size="80rpx"
-						input-width="120rpx"
-                        @change="stepperChange(i,'arrivePrice', $event)"
-					/>
-					<text class="u-font-40">减</text>
-					<van-stepper
-						:value="item.discount"
-						:min="0"
-						button-size="80rpx"
-						input-width="120rpx"
-                        @change="stepperChange(i,'discount', $event)"
-					/>
-					<van-tag plain type="danger"  class="tag-priview">{{
-						item.text
-					}}</van-tag>
-				</view>
+					<van-swipe-cell  :right-width="80" v-for="(item, i) in fullReductionList"
+							:key="i">
+						<view
+							class="align-center justify-around bg-f u-margin-bottom-80 u-padding-top-30 u-padding-bottom-30 relative">
+							<text class="u-font-40">满</text>
+							<van-stepper
+								:value="item.arrivePrice"
+								:min="0"
+								button-size="80rpx"
+								input-width="120rpx"
+								@change="stepperChange(i,'arrivePrice', $event)"
+							/>
+							<text class="u-font-40">减</text>
+							<van-stepper
+								:value="item.discount"
+								:min="0"
+								button-size="80rpx"
+								input-width="120rpx"
+								@change="stepperChange(i,'discount', $event)"
+							/>
+							<van-tag plain type="danger"  class="tag-priview">{{
+								item.text
+							}}</van-tag>
+						</view>
+						<view slot="right">
+							<van-button type="danger" custom-style="width:80px; height:140rpx"
+								@click="del(i)">删除</van-button>
+						</view>
+					</van-swipe-cell>
                 <view class="justify-end align-center 444 u-padding-right-30">
-                    <van-button   type="danger"  
+                    <!-- <van-button   type="danger"  
                         custom-style="border-radius: 50%; margin-right:30px"  @click="del">
                         <u-icon name="minus" color="#fff" size="32"></u-icon>
-                    </van-button>
+                    </van-button> -->
                     <van-button   type="danger"  custom-style="border-radius: 50%"  @click="add">
                         <u-icon name="plus" color="#fff" size="32"></u-icon>
                     </van-button>
@@ -44,9 +48,11 @@
 				<van-button slot="bottom" type="info" @click="add">添加满减</van-button>
 			</u-empty>
 		</view>
+
 		<van-button
 			type="primary"
 			block
+			round
 			:loading="submitBtnLoading"
 			loading-type="spinner"
 			class="submit-btn"
@@ -68,7 +74,7 @@ export default {
 	data() {
 		return {
 			fullReductionList: [],
-			submitBtnLoading: false,
+			submitBtnLoading: false
 		};
     },
 	methods: {
@@ -88,11 +94,11 @@ export default {
         sortFullReductionList() {
             this.fullReductionList = this.fullReductionList.sort((prev, next)=> prev.arrivePrice - next.arrivePrice)
         },
-        del() {
+        del(i) {
             this.$Dialog.alert({
-                message:'是否确认删除这行呢'
+                message:'是否确认删除?'
             }).then(()=>{
-                this.fullReductionList.pop()
+                this.fullReductionList.splice(i, 1)
                 this.$Toast('删除成功')
             })
         },
@@ -108,12 +114,13 @@ export default {
 		submit() {
             console.log(this.fullReductionList);
             
-			// this.$Notify({ type: 'success', message: '保存成功',onClose(){
-			//     uni.navigateBack()
-			// } });
+			
 			// this.submitBtnLoading = true
 			// setTimeout(() => {
-			//     thifullReductions.submitBtnLoading = false
+			// 	this.$Notify({ type: 'success', message: '保存成功',onClose:()=>{
+			// 		this.submitBtnLoading = false
+			// 		uni.navigateBack()
+			// 	} });
 			// }, 8000);
 			// useraddress(this.form).then(res=>{
 			//     this.$Toast(res.msg)
@@ -130,7 +137,7 @@ export default {
 
 <style lang="scss" scoped>
 .set-content {
-	height: calc(100vh - var(--safe-area) - 50px - 30rpx);
+	height: calc(100vh - var(--safe-area) - 50px - 40px);
 	overflow: auto;
 
 	.tag-priview {

@@ -73,7 +73,8 @@
 		globalData: {
 			orderDetail:[],
 			businessOrderDetail:{},
-			goodDetailData:{}
+			goodDetailData:{},
+			activitySettingDetailData:{}
 		}
 	}
 </script>
