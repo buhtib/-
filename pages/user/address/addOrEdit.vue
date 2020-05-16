@@ -12,7 +12,36 @@
                 @input="inputChange('name', '', $event)"
                 title-width="50px"
                 required/>
+
+            <van-cell title="填写手机号方式"  title-width="100px">
+                <view class="justify-end align-center ">
+                    <van-button   custom-style="margin-right:30rpx;"
+                        :type=" switchPhoneMode == 'weixin' ? 'primary' : 'default'"
+                        @click="switchPhoneMode = 'weixin'" >微信号</van-button>
+                    <van-button :type=" switchPhoneMode == 'code' ? 'primary' : 'default'" 
+                        @click="switchPhoneMode = 'code'">验证码</van-button>
+                </view>
+            </van-cell>
+
             <van-field
+                v-if="switchPhoneMode == 'weixin'"
+                :value="form.phone"
+                clearable
+                disabled
+                label="电话"
+                title-width="50px"
+                :maxlength="11"
+                placeholder="手机号码"
+                @input="inputChange('phone', '', $event)"
+                type="number"
+                required
+                use-button-slot>
+                <van-button slot="button" size="small" type="primary" plain open-type="getPhoneNumber" @getphonenumber="getWeiXinPhone">
+                    微信手机号授权</van-button>
+            </van-field>
+
+            <van-field
+                v-if="switchPhoneMode == 'code'"
                 :value="form.phone"
                 clearable
                 label="电话"
@@ -30,6 +59,7 @@
                     type="primary" plain v-if="!getCodeFlag">{{codeTime}}s</van-button>
             </van-field>
             <van-field
+                v-if="switchPhoneMode == 'code'"
                 :value="form.code"
                 clearable
                 label="验证码"
@@ -54,8 +84,7 @@
                     :show="popShow"
                     position="bottom"
                     round
-                    :close-on-click-overlay="false"
-                    custom-style="height: 46%;" >
+                    :close-on-click-overlay="false">
                     <van-area :area-list="areaList" @cancel="popShow = false" @confirm="changeAreaList"/>
                 </van-popup>
             <van-field
@@ -75,12 +104,14 @@
         </van-cell-group>
 
         <van-button 
-            type="primary" block :loading="submitBtnLoading" 
+            type="primary" block :loading="submitBtnLoading" round
             loading-type="spinner" class="submit-btn" @click="submit" :disabled="submitDisabled">保存</van-button>
         
         <van-dialog id="van-dialog" />
 
         <van-toast id="van-toast" />
+
+        <van-notify id="van-notify" />
     </view>
 </template>
 
@@ -103,11 +134,19 @@ export default {
             submitDisabled:false,
             popShow:false,
             areaList: columns,
-            submitBtnLoading:false
+            submitBtnLoading:false,
+            //weixin  **  code
+            switchPhoneMode:'weixin'
         }
     },
     mounted() {
         this.getForm()
+    },
+    watch: {
+        switchPhoneMode() {
+            this.form.phone = ''
+            this.form.code = ''
+        }
     },
     methods: {
         getForm() {
@@ -137,6 +176,13 @@ export default {
                 this.$Toast(res.msg)
             })
         },
+        getWeiXinPhone(e) {
+            console.log(e.detail);
+            if(e.detail.encryptedData) {
+                
+                // this.setPhoneNumber(e.detail.encryptedData)
+            }
+        },
         inputChange(name, region, e ) {
             this.form[name] = region ? e.detail.value : e.detail
         },
@@ -160,7 +206,7 @@ export default {
         },
         submit() {
             const { name, phone, code, address, detail_address, default_address } = this.form;
-            console.log(this.form);
+            // console.log(this.form);
             
             if (!/^(?:(?:\+|00)86)?1[3-9]\d{9}$/.test(phone)) {
                 this.$Toast("手机号有误");
@@ -174,6 +220,12 @@ export default {
                 this.submitDisabled = true
                 useraddress(this.form).then(res=>{
                     this.$Toast(res.msg)
+                    // setTimeout(() => {
+                    // 	this.$Notify({ type: 'success', message: '保存成功',onClose:()=>{
+                    // 		this.submitBtnLoading = false
+                    // 		uni.navigateBack()
+                    // 	} });
+                    // }, 8000);
                     setTimeout(uni.navigateBack, 800);
                     this.useraddress()
                 }).catch(res=>{
