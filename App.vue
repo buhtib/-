@@ -106,6 +106,7 @@
 	.content {
 		box-sizing: border-box;
 		min-height: 100%;
+		color:#000;
 		padding-bottom: env(safe-area-inset-bottom);
 		overflow-x: hidden;
 		-webkit-overflow-scrolling: touch;/* ios 平滑滚动*/
@@ -153,70 +154,80 @@
 		display: flex;
 	}
 
+	/* ==================
+			表单
+	==================== */
 
-	/* .input-group {
+	.cu-form-group {
 		background-color: #ffffff;
-		margin-top: 40upx;
-		position: relative;
-	}
-
-	.input-group::before {
-		position: absolute;
-		right: 0;
-		top: 0;
-		left: 0;
-		height: 1upx;
-		content: '';
-		-webkit-transform: scaleY(.5);
-		transform: scaleY(.5);
-		background-color: #c8c7cc;
-	}
-
-	.input-group::after {
-		position: absolute;
-		right: 0;
-		bottom: 0;
-		left: 0;
-		height: 1upx;
-		content: '';
-		-webkit-transform: scaleY(.5);
-		transform: scaleY(.5);
-		background-color: #c8c7cc;
-	}
-
-	.input-row {
+		padding: 1upx 30upx;
 		display: flex;
-		flex-direction: row;
+		align-items: center;
+		min-height: 100upx;
+		justify-content: space-between;
+	}
+
+	.cu-form-group+.cu-form-group {
+		border-top: 1upx solid #eee;
+	}
+
+	.cu-form-group .title {
+		text-align: justify;
+		padding-right: 30upx;
+		font-size: 30upx;
+		position: relative;
+		height: 60upx;
+		line-height: 60upx;
+	}
+
+	.cu-form-group input {
+		flex: 1;
+		font-size: 30upx;
+		color: #555;
+		padding-right: 20upx;
+	}
+
+	.cu-form-group>text[class*="cuIcon-"] {
+		font-size: 36upx;
+		padding: 0;
+		box-sizing: border-box;
+	}
+
+	.cu-form-group textarea {
+		margin: 32upx 0 30upx;
+		height: 4.6em;
+		width: 100%;
+		line-height: 1.2em;
+		flex: 1;
+		font-size: 28upx;
+		padding: 0;
+	}
+
+	.cu-form-group.align-start .title {
+		height: 1em;
+		margin-top: 32upx;
+		line-height: 1em;
+	}
+
+	.cu-form-group picker {
+		flex: 1;
+		// padding-right: 40upx;
+		overflow: hidden;
 		position: relative;
 	}
 
-	.input-row .title {
-		width: 20%;
-		height: 50upx;
-		min-height: 50upx;
-		padding: 15upx 0;
-		padding-left: 30upx;
-		line-height: 50upx;
+	.cu-form-group picker .picker {
+		line-height: 100upx;
+		font-size: 28upx;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		overflow: hidden;
+		width: 100%;
+		text-align: right;
 	}
 
-	.input-row.border::after {
-		position: absolute;
-		right: 0;
-		bottom: 0;
-		left: 15upx;
-		height: 1upx;
-		content: '';
-		-webkit-transform: scaleY(.5);
-		transform: scaleY(.5);
-		background-color: #c8c7cc;
+	.cu-form-group textarea[disabled],
+	.cu-form-group textarea[disabled] .placeholder {
+		color: transparent;
 	}
-
-	.btn-row {
-		margin-top: 50upx;
-		padding: 20upx;
-	}
-
-	button.primary {
-		background-color: #0faeff;
-	} */
 </style>

@@ -119,10 +119,16 @@
             }
         },
         {
-            "path": "pages/home/business/order/index",
+            "path": "pages/home/business/order/notSendOrders",
             "style": {
-                "navigationBarTitleText": "全部订单",
+                "navigationBarTitleText": "未发货订单管理",
                 "enablePullDownRefresh": true
+            }
+        },
+        {
+            "path": "pages/home/business/order/allOrders",
+            "style": {
+                "navigationBarTitleText": "全部订单查看"
             }
         },
         {

@@ -12,27 +12,57 @@
     z-index: 200;
 }
 
-/*固定在底部*/ 
+/*固定在底部*/
 .fixed-bottom {
     position: fixed;
-    bottom:var(--safe-area);
+    bottom: var(--safe-area);
     left: 0;
     width: 100%;
     background-color: #fff;
 }
 
-/*固定在底部van-button 按钮*/ 
+/*固定在底部van-button 按钮*/
 .submit-btn {
-	position: fixed;
-	left: 0;
-	bottom: var(--safe-area);
-	width: 100%;
+    position: fixed;
+    left: 0;
+    bottom: var(--safe-area);
+    width: 100%;
+}
+
+
+/*按下波纹动画*/
+.ripple {
+    position: relative;
+    overflow: hidden;
+}
+
+.ripple:after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    background-image: radial-gradient(circle, rgb(88, 88, 88) 10%, transparent 10.01%);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    transform: scale(10, 10);
+    opacity: 0;
+    transition: transform .3s, opacity .3s;
+}
+
+.ripple:active:after {
+    transform: scale(0, 0);
+    opacity: .6;
+    transition: 0s;
 }
 
 /*导航 按压效果*/
 .navigator-hover {
-	background-color: rgba(33,150,243 ,.2) !important;
-	transition: .6s background-color;
+    background-color: rgba(33, 150, 243, .2) !important;
+    transition: .6s background-color;
 }
 
 /*适配  iphonex  系列底部横线*/
@@ -49,34 +79,42 @@
 .flex {
     display: flex;
 }
+
 .flex1 {
     flex-grow: 1;
     height: 100%;
 }
+
 .column {
     display: flex;
     flex-direction: column;
 }
+
 .justify-center {
     display: flex;
     justify-content: center;
 }
+
 .justify-around {
     display: flex;
     justify-content: space-around;
 }
+
 .justify-between {
     display: flex;
     justify-content: space-between !important;
 }
+
 .justify-end {
     display: flex;
     justify-content: flex-end;
 }
+
 .align-center {
     display: flex;
     align-items: center;
 }
+
 .justify-align-center {
     display: flex;
     justify-content: center;
@@ -92,30 +130,39 @@
 .w-25 {
     width: 25%;
 }
+
 .w-10 {
     width: 10%;
 }
+
 .w-20 {
     width: 20%;
 }
+
 .w-30 {
     width: 30%;
 }
+
 .w-40 {
     width: 40%;
 }
+
 .w-50 {
     width: 50%;
 }
+
 .w-60 {
     width: 60%;
 }
+
 .w-70 {
     width: 70%;
 }
+
 .w-80 {
     width: 80%;
 }
+
 .w-100 {
     width: 100%;
 }
@@ -124,6 +171,7 @@
 .t-align-l {
     text-align: left;
 }
+
 .t-align-r {
     text-align: right;
 }
@@ -138,27 +186,35 @@
 .font16 {
     font-size: 16rpx;
 }
+
 .font20 {
     font-size: 20rpx;
 }
+
 .font22 {
     font-size: 22rpx;
 }
+
 .font24 {
     font-size: 24rpx;
 }
+
 .font26 {
     font-size: 26rpx;
 }
+
 .font28 {
     font-size: 28rpx;
 }
+
 .font30 {
     font-size: 30rpx;
 }
+
 .font32 {
     font-size: 32rpx;
 }
+
 .font34 {
     font-size: 34rpx;
 }
@@ -166,9 +222,11 @@
 .font36 {
     font-size: 36rpx;
 }
+
 .font40 {
     font-size: 40rpx;
 }
+
 .font50 {
     font-size: 50rpx;
 }
@@ -176,47 +234,61 @@
 
 /* color */
 .color07 {
-    color:#07c160;
+    color: #07c160;
 }
+
 .color000 {
     color: #000000;
 }
+
 .colorfff {
     color: #ffffff;
 }
+
 .color35 {
     color: #353535;
 }
+
 .color37 {
     color: #373737;
 }
+
 .color95 {
     color: #959595;
 }
+
 .color20 {
     color: #20A6B2;
 }
+
 .color6b {
     color: #6b6b6b;
 }
+
 .colorf0 {
     color: #FF0000;
 }
+
 .colorae {
     color: #AEAEAE;
 }
+
 .colorf3 {
     color: #F39800;
 }
+
 .colorf2 {
     color: #F2C456;
 }
+
 .colorfb {
     color: #FBA51D;
 }
+
 .colore6 {
     color: #E60012;
 }
+
 .color53 {
     color: #535353;
 }
@@ -235,12 +307,12 @@
 
 /* position */
 .relative {
-	position: relative;
+    position: relative;
 }
 
 /*box-shadow*/
 .shadow {
-    box-shadow: 0px 0px 16rpx 0px rgba(0,0,0,0.25);
+    box-shadow: 0px 0px 16rpx 0px rgba(0, 0, 0, 0.25);
 }
 
 /*overflow*/
@@ -248,7 +320,7 @@
     overflow: hidden;
 }
 
-/*img*/ 
+/*img*/
 .img-cover {
     object-fit: cover;
     flex-shrink: 0;
@@ -257,4 +329,9 @@
 /* text-decoration */
 .delete-line {
     text-decoration: line-through;
+}
+
+/*line-height*/
+.lh-1 {
+    line-height: 1;
 }

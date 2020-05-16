@@ -21,7 +21,8 @@ export default {
 	data() {
 		return {
 			dataLsit: [
-				{ name: "订单管理", url: "/pages/home/business/order/index" },
+				{ name: "未发货订单管理", url: "/pages/home/business/order/notSendOrders" },
+				{ name: "全部订单查看", url: "/pages/home/business/order/allOrders" },
 				{ name: "活动商品管理", url: "/pages/home/business/activitySetting/activitySetting" },
 				{ name: "满减设置", url: "/pages/home/business/fullReduction" },
 				{ name: "商家电话设置", url: "/pages/home/business/tel" }
