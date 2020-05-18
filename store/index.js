@@ -27,8 +27,8 @@ const store = new Vuex.Store({
             address:'',
             detail_address: ''
         },
-        lat1 : 22.620075225830078,
-        lng1 : 114.04234313964844
+        shangjia_latitude : 22.838966,
+        shangjia_longitude : 108.219741
     },
     mutations: {
         ...mutations

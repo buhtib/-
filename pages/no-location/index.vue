@@ -13,6 +13,8 @@
         </u-empty>
 
         <van-toast id="van-toast" />
+
+        <van-dialog id="van-dialog" />
     </view>
 </template>
 
@@ -21,13 +23,29 @@ export default {
     methods:{
         startLocation() {
             uni.getLocation({
-                type: 'gcj02',
+                type: 'wgs84',
                 success: (res) => {
-                    this.$u.route({
-                        type:'reLaunch',
-                        url:'pages/home/home'
-                    })
-                    console.log(res)
+                    const { latitude, longitude } = res
+                    const { shangjia_latitude, shangjia_longitude } = this
+                    
+                    this.$Dialog.alert({
+                        message: `工作室纬度为${shangjia_latitude}  工作室精度为${shangjia_longitude} \n
+                        实时纬度为${latitude}  实时精度为${longitude} \n`,
+                    }).then(() => {
+                        const distance = Number(this.$util.calculationDistance(shangjia_latitude,shangjia_longitude, latitude, longitude))
+                        this.$Toast(`距离${distance}米`)
+                        if ( distance >  300){
+                            this.$Dialog({
+                                message:'不能离指定位置大于300米',
+                                showConfirmButton:false
+                            })
+                        }else {
+                            // this.$u.route({
+                            //     type:'reLaunch',
+                            //     url:'pages/home/home'
+                            // })
+                        }
+                    });
                 },
                 fail:()=> {
                     this.$Toast({
