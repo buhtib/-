@@ -35,13 +35,13 @@
 			<view class="u-margin-top-20 u-margin-bottom-20">
 				<van-grid :gutter="10" :column-num="3" clickable>
 					<van-grid-item  text="已付款" link-type="navigateTo" url="/pages/user/my-order/Index?active=1">
-						<van-icon name="gold-coin" color="#07c160" slot="icon" />
+						<van-icon name="/static/img/payed.png" color="#07c160" slot="icon" />
 					</van-grid-item>
 					<van-grid-item  text="待发货" link-type="navigateTo" url="/pages/user/my-order/Index?active=2" >
-						<van-icon name="todo-list" color="#07c160" slot="icon" />
+						<van-icon name="/static/img/wait.png" color="#07c160" slot="icon" />
 					</van-grid-item>
 					<van-grid-item  text="已送达" link-type="navigateTo" url="/pages/user/my-order/Index?active=3">
-						<van-icon name="underway" color="#07c160" slot="icon" />
+						<van-icon name="/static/img/arrive.png" color="#07c160" slot="icon" />
 					</van-grid-item>
 				</van-grid>
 			</view>
