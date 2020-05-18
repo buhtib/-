@@ -64,6 +64,8 @@
 		</view>
 
 		<scrollTop @goTop="goTop"/>
+
+		<van-dialog id="van-dialog" />
 	</scroll-view>
 </template>
 
@@ -143,6 +145,9 @@ export default {
 			],
 			loadStatus: "loadmore",
 		};
+	},
+	onShow() {
+		getApp().$vm.startLocation()
 	},
 	mounted() {
 		this.changeMenuList();

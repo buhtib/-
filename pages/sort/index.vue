@@ -99,12 +99,6 @@ export default {
 		cart,
 		shopIntro
 	},
-	onLoad() {
-		// getApp().$vm.startLocation()
-	},
-	onShow() {
-		// getApp().$vm.startLocation()
-	},
 	mounted() {
 		this.getShopIntroHeight() 
 		// getStorelist({ type: "querylist" }).then((res) => {

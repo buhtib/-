@@ -66,7 +66,7 @@ export default {
     methods: {
         goDetail(item) {
             getApp().globalData.activitySettingDetailData = item
-            this.$u.route('pages/home/business/activitySetting/detail')
+            this.$u.route('pages/business/activitySetting/detail')
         }
     }
 }

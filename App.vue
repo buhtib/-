@@ -29,34 +29,52 @@
 			},
 			//后台持续定位功能
 			startLocation() {
-				uni.startLocationUpdateBackground({
-					success:(res)=> {
-						uni.onLocationChange((res)=>{
-                            this.$Dialog.close();
-							const { latitude, longitude } = res
-							// this.$Toast(`经度${latitude}维度${longitude}`)
-							this.$Toast(this.calculationDistance(this.lat1, this.lng1, latitude, longitude))
-							if ( Number(this.calculationDistance(this.lat1, this.lng1, latitude, longitude)) >  1){
-								this.$Dialog({
-									message:'不能离指定位置大于1米',
-									showConfirmButton:false
-								})
-							}
-							// console.log('location change', res)
+				uni.getLocation({
+					type: 'gcj02',
+						success: (res) => {
+							console.log(res)
+							this.$Toast({
+							forbidClick:false,
+							message:'开启定位成功'
 						})
 					},
-					fail:(res)=>{
-						// uni.showToast({
-						// 	title:`开启后台定位失败,请开启定位到指定店家使用`,
-						// 	icon:'none'
-						// })
-						this.$Dialog({
-							message:'开启后台定位失败,请开启定位到指定店家的位置使用',
-							showConfirmButton:false
+					fail() {
+						console.log(1111);
+						
+						uni.reLaunch({
+							url:'/pages/no-location/index'
 						})
-						console.log('开启后台定位失败', res)
 					}
 				})
+				// uni.startLocationUpdateBackground({
+				// 	success:(res)=> {
+				// 		uni.onLocationChange((res)=>{
+                //             this.$Dialog.close();
+				// 			const { latitude, longitude } = res
+				// 			this.$Toast(`经度${latitude}维度${longitude}`)
+				// 			this.$Toast(this.calculationDistance(this.lat1, this.lng1, latitude, longitude))
+				// 			if ( Number(this.calculationDistance(this.lat1, this.lng1, latitude, longitude)) >  1){
+				// 				this.$Dialog({
+				// 					message:'不能离指定位置大于1米',
+				// 					showConfirmButton:false
+				// 				})
+				// 			}
+				// 			// console.log('location change', res)
+				// 		})
+				// 	},
+				// 	fail:(res)=>{
+				// 		// uni.showToast({
+				// 		// 	title:`开启后台定位失败,请开启定位到指定店家使用`,
+				// 		// 	icon:'none'
+				// 		// })
+				// 		this.$Dialog({
+				// 			message:'开启后台定位失败,请开启定位到指定店家的范围内使用',
+				// 			// showConfirmButton:false,
+				// 			// showCancelButton:false
+				// 		})
+				// 		console.log('开启后台定位失败', res)
+				// 	}
+				// })
 			},
 			// 计算两地之间的距离（lat1, lng1为商家经纬度  lat2， lng2为实时定位的经纬度）
 			calculationDistance(lat1, lng1, lat2, lng2) {

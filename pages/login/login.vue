@@ -72,7 +72,7 @@ export default {
 
 <style lang="scss">
 .login {
-	padding-top: 120rpx;
+	padding-top: calc(120rpx + var(--status-bar-height));
 }
 .logintxt {
     margin-top: var(--m-20);

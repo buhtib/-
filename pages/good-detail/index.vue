@@ -74,7 +74,7 @@
 				url="/pages/home/home"
 				class="column justify-around align-center u-padding-right-30 u-padding-left-30" 
 				style="height:50px;">
-					<van-icon name="/static/tabbar/component.png" size="30"/>
+					<van-icon name="/static/tabbar/home.png" size="30"/>
 					<view>去首页</view>
 				</navigator>
 				<navigator 
@@ -82,7 +82,7 @@
 				url="/pages/shopping-cart/index"
 				class="column justify-align-center u-padding-right-30 u-padding-left-30 u-margin-left-10"  
 				style="height:50px;">
-					<van-icon name="/static/tabbar/plugin.png" size="30" :info="totalNum"/>
+					<van-icon name="/static/tabbar/cart.png" size="30" :info="totalNum"/>
 					<view>购物车</view>
 				</navigator>
 			</view>

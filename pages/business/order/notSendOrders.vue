@@ -301,7 +301,7 @@
             goDetail(item) {
                 getApp().globalData.businessOrderDetail = item
                 uni.navigateTo({
-                    url:"/pages/home/business/order/detail"
+                    url:"/pages/business/order/detail"
                 })
             },
             sendOut() {
@@ -321,5 +321,5 @@
             color: #ee0a24 !important;
         }
     }
-    @import '../../../user/my-order/common.scss';
+    @import '../../user/my-order/common.scss';
 </style>

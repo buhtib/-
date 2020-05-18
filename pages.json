@@ -43,7 +43,8 @@
         {
             "path": "pages/login/login",
             "style": {
-                "navigationBarTitleText": "微信授权"
+                "navigationBarTitleText": "微信授权",
+				"navigationStyle": "custom"
             }
         },
         {
@@ -113,84 +114,91 @@
             }
         },
         {
-            "path": "pages/home/business/index",
+            "path": "pages/business/index",
             "style": {
                 "navigationBarTitleText": "商家中心"
             }
         },
         {
-            "path": "pages/home/business/order/notSendOrders",
+            "path": "pages/business/order/notSendOrders",
             "style": {
                 "navigationBarTitleText": "未发货订单管理",
                 "enablePullDownRefresh": true
             }
         },
         {
-            "path": "pages/home/business/order/allOrders",
+            "path": "pages/business/order/allOrders",
             "style": {
                 "navigationBarTitleText": "全部订单查看"
             }
         },
         {
-            "path": "pages/home/business/order/detail",
+            "path": "pages/business/order/detail",
             "style": {
                 "navigationBarTitleText": "订单详情"
             }
         },
         {
-            "path": "pages/home/business/tel",
+            "path": "pages/business/tel",
             "style": {
                 "navigationBarTitleText": "电话设置"
             }
         },
         {
-            "path": "pages/home/business/fullReduction",
+            "path": "pages/business/fullReduction",
             "style": {
                 "navigationBarTitleText": "满减设置"
             }
         },
         {
-            "path": "pages/home/business/activitySetting/activitySetting",
+            "path": "pages/business/activitySetting/activitySetting",
             "style": {
                 "navigationBarTitleText": "活动商品管理",
                 "enablePullDownRefresh": true
             }
         },
         {
-            "path": "pages/home/business/activitySetting/detail",
+            "path": "pages/business/activitySetting/detail",
             "style": {
                 "navigationBarTitleText": "活动商品设置"
+            }
+        },
+        {
+            "path": "pages/no-location/index",
+            "style": {
+                "navigationStyle": "custom"
             }
         }
     ],
     "tabBar": {
-        "color": "#B3B3B3",
+        "color": "#DCDDDD",
+        "selectedColor": "#2F66AE",
         "backgroundColor": "#ffffff",
         "fontSize": "20px",
         "list": [
             {
 				"pagePath": "pages/home/home",
 				"text": "首页",
-				"iconPath": "static/tabbar/component.png",
-				"selectedIconPath": "static/tabbar/component_cur.png"
+				"iconPath": "static/tabbar/home.png",
+				"selectedIconPath": "static/tabbar/home_a.png"
             },
             {
 				"pagePath": "pages/sort/index",
 				"text": "分类搜索",
-				"iconPath": "static/tabbar/basics.png",
-				"selectedIconPath": "static/tabbar/basics_cur.png"
+				"iconPath": "static/tabbar/sort.png",
+				"selectedIconPath": "static/tabbar/sort_a.png"
             },
             {
 				"pagePath": "pages/shopping-cart/index",
 				"text": "购物车",
-				"iconPath": "static/tabbar/plugin.png",
-				"selectedIconPath": "static/tabbar/plugin_cur.png"
+				"iconPath": "static/tabbar/cart.png",
+				"selectedIconPath": "static/tabbar/cart_a.png"
 			},
 			{
 				"pagePath": "pages/user/user",
 				"text": "我的",
-				"iconPath": "static/tabbar/about.png",
-				"selectedIconPath": "static/tabbar/about_cur.png"
+				"iconPath": "static/tabbar/my.png",
+				"selectedIconPath": "static/tabbar/my_a.png"
 			}
         ]
     },

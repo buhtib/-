@@ -157,7 +157,7 @@
             goDeatil(item) {
                 getApp().globalData.businessOrderDetail = item
                 uni.navigateTo({
-                    url:"/pages/home/business/detail"
+                    url:"/pages/business/detail"
                 })
             }
         },
