@@ -1,8 +1,9 @@
 <template>
 	<view class="content u-padding-30">
-		<van-grid column-num="2" clickable>
+		<van-grid :column-num="2" clickable>
 			<van-grid-item :icon="item.icon" :text="item.name" v-for="(item, i) in dataLsit" :key="i" 
-				icon-class="grid-item-icon" @click="goDetail(item.url)"></van-grid-item>
+				icon-class="grid-item-icon" @click="goDetail(item.url)">
+			</van-grid-item>
 		</van-grid>
 	</view>
 </template>
